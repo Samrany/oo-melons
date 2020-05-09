@@ -51,6 +51,15 @@ class InternationalOrder(AbstractMelonOrder):
     def get_country_code(self):
         return(self.country_code)
 
+class GovernmentMelonOrder(AbstractMelonOrder):
+
+    def __init__(self, species, qty):
+        self.pass_inspection = False
+        super().__init__(species, qty, "government order", tax = 0)
+
+
+    def mark_inspection(self):
+        self.pass_inspection = True
 
 # class IncreasedCostMixin:
 #     """Mixin to address melons that have a higher cost than avg"""
